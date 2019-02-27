@@ -1,4 +1,4 @@
-# VRT - Vert
+# VRT - Chrome extension
 
 VRT is an extension that creates a vertical grid over your web page. This is meant to be a tool for web typography nerds that want to work with a baseline grid."
 
