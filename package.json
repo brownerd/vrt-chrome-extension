@@ -1,0 +1,36 @@
+{
+  "name": "vrt",
+  "version": "1.0.1",
+  "description": "VRT is an extension that creates a vertical grid over your web page. This is meant to be a tool for web typography nerds that want to work with a baseline grid.",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "parcel src/demo.html --open 'google chrome canary'",
+    "prebuild": "rm -rf dist",
+    "build": "parcel build src/index.js -d dist/ -o index.js",
+    "postbuild": "npm run dist:html & npm run dist:manifest & npm run dist:icon",
+    "watch": "parcel watch src/js/main.js -d dist/ -o main.js",
+    "clean": "rimraf dist",
+    "makedist": "mkdir dist",
+    "zip": "zip -r vrt-chrome-extension.zip dist",
+    "predist": "mkdir dist; rm -rf dist/*",
+    "dist": "npm run dist:html & npm run dist:js & npm run dist:manifest & npm run dist:icon",
+    "dist:manifest": "cp ./src/manifest.json ./dist",
+    "dist:icon": "cp ./src/icons/* ./dist",
+    "dist:js": "terser ./src/index.js --compress --mangle --output ./dist/index.js",
+    "dist:css": "postcss ./src/style.css --no-map --output ./dist/style.css",
+    "dist:html": "html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true ./src/index.html > ./dist/index.html"
+  },
+  "keywords": [
+    "typography"
+  ],
+  "author": "Brownerd",
+  "license": "ISC",
+  "repository": "",
+  "devDependencies": {
+    "parcel-bundler": "^1.11.0",
+    "rimraf": "^2.6.3"
+  },
+  "dependencies": {
+    "rdmkit-vrt": "^1.0.3"
+  }
+}
