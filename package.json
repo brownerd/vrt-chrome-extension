@@ -31,6 +31,6 @@
     "rimraf": "^2.6.3"
   },
   "dependencies": {
-    "rdmkit-vrt": "^1.0.5"
+    "rdmkit-vrt": "^1.0.6"
   }
 }
